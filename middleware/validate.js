@@ -11,6 +11,12 @@ export const validateThumnailUrl = [
   handleValidation,
 ];
 
+export const validatePatch = [
+  check("data", "data must be an object").isObject(),
+  check("patch", "patch must be an array").isArray(),
+  handleValidation,
+];
+
 function handleValidation(req, res, next) {
   const errors = validationResult(req);
 

@@ -1,7 +1,7 @@
 import resizeImg from "resize-img";
 import http from "http";
 import https from "https";
-import { createWriteStream, readFileSync, unlink, writeFile } from "fs";
+import { createWriteStream, readFileSync, writeFile } from "fs";
 import path from "path";
 
 export async function resizeImage(req, res) {
