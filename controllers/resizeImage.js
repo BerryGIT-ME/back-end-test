@@ -6,6 +6,12 @@ import path from "path";
 
 export async function resizeImage(req, res) {
   const { url } = req.body;
+
+  if (!url.startsWith("http")) {
+    res.status(400).json({ message: "Please enter a valid url string" });
+    return;
+  }
+
   try {
     const filePath = "./thumbnails/sample.jpg";
     const resizedFilePath = "./thumbnails/imageResized.jpg";

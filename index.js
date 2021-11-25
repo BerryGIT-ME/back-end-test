@@ -1,3 +1,10 @@
+import { readFileSync } from "fs";
+import module from "module";
+
+module.Module._extensions[".js"] = function (module, filename) {
+  module._compile(readFileSync(filename, "utf8"), filename);
+};
+
 import express from "express";
 import dotenv from "dotenv";
 import login from "./routes/login.js";
@@ -8,7 +15,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 export const SECRETKEY = process.env.JWTSECRETE;
 
-export const app = express();
+const app = express();
 app.use(express.json());
 
 app.use("/api/login", login);
@@ -18,3 +25,5 @@ app.use("/api/patch", patch);
 app.listen(PORT, (err) => {
   console.log(`server started on port ${PORT}`);
 });
+
+export default app;
