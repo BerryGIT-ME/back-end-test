@@ -1,10 +1,3 @@
-import { readFileSync } from "fs";
-import module from "module";
-
-module.Module._extensions[".js"] = function (module, filename) {
-  module._compile(readFileSync(filename, "utf8"), filename);
-};
-
 import express from "express";
 import dotenv from "dotenv";
 import login from "./routes/login.js";

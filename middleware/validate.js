@@ -1,8 +1,14 @@
 import { check, validationResult } from "express-validator";
 
 export const validateLogin = [
-  check("username", "Please enter a username").notEmpty().isString(),
-  check("password", "Please enter a password").notEmpty().isString(),
+  check("username", "Please enter a username")
+    .notEmpty()
+    .isString()
+    .isLength({ min: 1 }),
+  check("password", "Please enter a password")
+    .notEmpty()
+    .isString()
+    .isLength({ min: 1 }),
   handleValidation,
 ];
 

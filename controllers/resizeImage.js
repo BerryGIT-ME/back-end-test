@@ -13,8 +13,8 @@ export async function resizeImage(req, res) {
   }
 
   try {
-    const filePath = "./thumbnails/sample.jpg";
-    const resizedFilePath = "./thumbnails/imageResized.jpg";
+    const filePath = "./img/sample.jpg";
+    const resizedFilePath = "./img/imageResized.jpg";
     await downloadFile(url, filePath);
 
     const options = { width: 50, height: 50 };
