@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import login from "./routes/login.js";
 import resizeThumbnail from "./routes/thumbnail.js";
 import patch from "./routes/patch.js";
+import logger from "./service/logService.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -16,7 +17,7 @@ app.use("/api/resize-thumbnail", resizeThumbnail);
 app.use("/api/patch", patch);
 
 app.listen(PORT, (err) => {
-  console.log(`server started on port ${PORT}`);
+  logger.info(`server started on port ${PORT}`);
 });
 
 export default app;
